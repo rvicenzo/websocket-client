@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import socket from "../../io/io";
+import Button, { ButtonDiv } from '../../components/Button';
+import Item from "../../components/Item";
+import { steps } from './constants';
 
 const StepsIO: React.FC = () => {
     const roomName = "ReceiptDetails";
@@ -33,13 +36,21 @@ const StepsIO: React.FC = () => {
     }
 
     return <>
-        <button onClick={handleClick}>CONFIRMAR</button>
-        <div>
-            ID: {id}
-            <br />
-            Is Confirmed:
-            {confirmation ? "YES" : "NO"}
-        </div>
+        ID: {id}
+        <br />
+        {steps.map((item, i) =>
+            <Item>
+                {item.label}
+                {
+                    item.showButton && <ButtonDiv>
+                        <Button onClick={handleClick}>
+                            CONFIRMAR
+                        </Button>
+                    </ButtonDiv>
+                }
+            </Item>
+        )
+        }
     </>
 
 }
