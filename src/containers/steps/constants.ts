@@ -13,10 +13,6 @@ export const steps = [
         showButton: true
     },
     {
-        label: 'FINALIZAR',
-        showButton: true
-    },
-    {
         label: 'SAÍDA',
         showButton: false
     }

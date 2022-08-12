@@ -43,6 +43,7 @@ const StepsIO: React.FC = () => {
                 {item.label}
                 {
                     item.showButton && <ButtonDiv>
+                        { confirmation && <div>Recebimento autorizado</div>}
                         <Button onClick={handleClick}>
                             CONFIRMAR
                         </Button>
